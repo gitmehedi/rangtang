@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="../../bower_components/select2/select2.css"/>
+        <!--<link rel="stylesheet" href="../../bower_components/select2/select2-bootstrap.css"/>-->
+
+    </head>
+    <body>
+
+        <h2>Remote Data</h2>
+        <input class='form-control col-lg-5 itemSearch' type='text' placeholder='select item' id="profiles-thread"/>
+        <!--<select name="" id="profiles-thread">-->
+        <!--<option value=""></option> -->
+        <!--</select>-->
+
+        <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../../bower_components/select2/select2.min.js"></script>
+
+
+        <script>
+            $(document).ready(function () {
+
+
+                $("#profiles-thread").select2({
+                    minimumInputLength: 2,
+                    tags: [],
+                    ajax: {
+                        dataType: "json",
+                        url: "result.php",
+                        results: function (data) {
+                            return {results: data};
+                        }
+                    },
+                    formatResult: function formatValues(data) {
+                        return data.id;
+                    }
+
+                });
+
+            });
+        </script>
+
+
+    </body>
+</html>

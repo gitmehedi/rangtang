@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="../../bower_components/select2/select2.css"/>
+        <link rel="stylesheet" href="../../bower_components/select2/select2-bootstrap.css"/>
+        <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../../bower_components/select2/select2.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+
+            <div class="row">
+                <!--<div class="col-sm-4">-->
+                <!--<h2>Simple</h2>-->
+                <!--<select class="js-example-basic-single">-->
+                <!--<option value="AL">Alabama</option>-->
+                <!--<option value="AL">Alabama</option>-->
+                <!--<option value="AL">Alabama</option>-->
+                <!--<option value="AL">Alabama</option>-->
+                <!--<option value="AL">Alabama</option>-->
+                <!--<option value="WY">Wyoming</option>-->
+                <!--</select>-->
+                <!--</div>-->
+
+                <div class="col-sm-4">
+                    <h2>Remote Data</h2>
+                    <select class="js-data-example-ajax">
+                        <!--<option value="select2/select2" selected="selected">select2/select2</option>-->
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <h2>Check New Row</h2>
+                <select class="js-example-basic-single"></select>
+
+                <!--<select class="js-example-data-array-selected">-->
+                <!--<option value="2" selected="selected">duplicate</option>-->
+                <!--</select>-->
+            </div>
+
+            <select class="js-example-data-array-selected"></select>
+
+            <select class="js-example-data-array-selected">
+                <option value="2" selected="selected">duplicate</option>
+            </select>
+
+
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $(".js-example-basic-single").select2();
+            });
+
+            $(".js-data-example-ajax").select2({
+                ajax: {
+                    url: "result.php",
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term, // search term
+                            page: params.page
+                        };
+                    },
+                    processResults: function (data, page) {
+                        // parse the results into the format expected by Select2.
+                        // since we are using custom formatting functions we do not need to
+                        // alter the remote JSON data
+                        return {
+                            results: data.items
+                        };
+                    },
+                    cache: true
+                },
+                escapeMarkup: function (markup) {
+                    return markup;
+                }, // let our custom formatter work
+                minimumInputLength: 1,
+                templateResult: formatRepo, // omitted for brevity, see the source of this page
+                templateSelection: formatRepoSelection // omitted for brevity, see the source of this page
+            });
+            //
+
+            //            $(".js-example-basic-single").select2({
+            //                data: data
+            //            })
+            //            var data = [
+            //                {id: 0, text: 'enhancement'},
+            //                {id: 1, text: 'bug'},
+            //                {id: 2, text: 'duplicate'},
+            //                {id: 3, text: 'invalid'},
+            //                {id: 4, text: 'wontfix'}
+            //            ];
+
+
+            var data = [{id: 0, text: 'enhancement'}, {id: 1, text: 'bug'}, {id: 2, text: 'duplicate'}, {
+                id: 3,
+                text: 'invalid'
+            }, {id: 4, text: 'wontfix'}];
+
+            $(".js-example-data-array").select2({
+                data: data
+            })
+
+            $(".js-example-data-array-selected").select2({
+                data: data
+            })
+
+
+        </script>
+
+
+    </body>
+</html>
