@@ -1,15 +1,13 @@
 <?php
 $newArray = array(
-    "id" => "Mango-1",
-    "id" => "Mango-2",
-    "id" => "Mango-3",
-    "id" => "Mango-4",
-    "id" => "Mango-5",
-    "id" => "Mango-6",
-    "id" => "Mango-7",
-    "id" => "Mango-8",
-
-
+    array("id" => 1, "name" => "Mango"),
+    array("id" => 2, "name" => "Apple"),
+    array("id" => 3, "name" => "Banana"),
+    array("id" => 4, "name" => "orange"),
+    array("id" => 5, "name" => "Pineapple"),
+    array("id" => 6, "name" => "Guava"),
+    array("id" => 7, "name" => "Black berry")
 );
+$encode = json_encode($newArray);
 
-echo json_encode($newArray);
+echo $encode;

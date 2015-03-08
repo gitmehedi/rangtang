@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>New html</title>
+    <link rel="stylesheet" href="../../bower_components/select2/select2.css"/>
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../bower_components/select2/select2.min.js"></script>
+</head>
+<body>
+<div class="row">
+    <h2>Mehedi</h2>
+    <input id="categories" type="text"/>
+    <script>
+        $('#categories').select2({
+            placeholder: 'Search for a category',
+            ajax: {
+                url: "result.php",
+                dataType: 'json',
+                quietMillis: 100,
+                data: function (term, page) {
+                    return {
+                        term: term, //search term
+                        page_limit: 10 // page size
+                    };
+                },
+                results: function (data, page) {
+                    var myResults = [];
+                    $.each(data, function (index, item) {
+                        myResults.push({
+                            'id': item.id,
+                            'text': item.name
+                        });
+                    });
+
+                    return {
+                        results: myResults
+                    };
+                }
+
+            }
+//            formatResult: function (post) {
+//                markup = '<strong>' + post.text + '</strong>';
+//            },
+//            initSelection: function (element, callback) {
+//                return $.getJSON("/result.php?id=" + (element.val()), null, function (data) {
+//
+//                    return callback(data);
+//
+//                });
+//            }
+
+        });
+    </script>
+</div>
+</body>
+</html>
