@@ -1,0 +1,41 @@
+.container {
+    width: 600px;
+    overflow: hidden;
+    margin: auto;
+}
+
+li {
+    float: left;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    margin: 1px;
+    background-color: #a94442;
+    list-style: none;
+    font-size: 50px;
+}
+
+/*li:first-child{*/
+/*background-color: #2b542c;*/
+/*}*/
+
+/*li:last-child{*/
+/*background-color: #2b542c;*/
+/*}*/
+
+li:nth-child(3n+2) {
+    background-color: #2b542c;
+
+}
+
+li:hover {
+    background-color: #23527c;
+    font-size: 55px;
+    cursor: pointer;
+}
+
+h2 + p {
+    font-size: 1.5em;
+    color: #2b542c;
+}

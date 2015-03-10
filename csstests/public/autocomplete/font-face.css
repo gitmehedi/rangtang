@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'vit';
+    src: url('../../../public/fonts/vitamin/VITAMIN_-webfont.eot');
+    src: url('../../../public/fonts/vitamin/VITAMIN_-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../../../public/fonts/vitamin/VITAMIN_-webfont.woff') format('woff'),
+    url('../../../public/fonts/vitamin/VITAMIN_-webfont.ttf') format('truetype'),
+    url('../../../public/fonts/vitamin/VITAMIN_-webfont.svg#vitaminregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+h2{
+    font-family: vit;
+}
