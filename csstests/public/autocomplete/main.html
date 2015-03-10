@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 Tutorials </title>
+
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+    <link rel="stylesheet" href="jquery-ui.css"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="border-radius">
+    Hello
+</div>
+<div class="form-group col-sm-2">
+    <input class="form-control" id="tags" type="text"/>
+</div>
+
+<!--Remote data for auto-->
+<div class="ui-widget">
+    <label for="birds">Birds: </label>
+    <input id="birds">
+</div>
+
+<div class="ui-widget" style="margin-top:2em; font-family:Arial">
+    Result:
+    <div id="log" style="height: 200px; width: 300px; overflow: auto;" class="ui-widget-content"></div>
+</div>
+
+<!--script starts-->
+<script src="jquery.min.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="auto.js"></script>
+<script src="remote-auto.js"></script>
+<!--script end-->
+</body>
+</html>
