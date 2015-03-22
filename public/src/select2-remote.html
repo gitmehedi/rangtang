@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../bower_components/select2/select2.css"/>
+    <link rel="stylesheet" href="../../bower_components/select2/select2-bootstrap.css"/>
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../bower_components/select2/select2.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <div class="row col-sm-12">
+
+
+    </div>
+
+    <div class="row">
+        <input type="hidden" id="e10_2" style="width:300px"/>
+    </div>
+
+
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        // tell Select2 to use the property name for the text
+        function format(item) {
+            return item.name;
+        };
+
+        var names = [{"id": "1", "name": "Mehedi Hasan"}
+            , {"id": "2", "name": "Abir Khan"}
+            , {"id": "3", "name": "New Long old rong"}]
+
+        $("#e10_2").select2({
+            ajax: {
+                url: "result.php",
+                type: "POST",
+                async: true,
+                data: function (params) {
+                    return {
+                        q: params,
+                        page: 'mehdi'
+                    };
+                },
+                results: function (data) {
+                    var myResults = [];
+                    $.each(data, function (index, item) {
+                        myResults.push({
+                            'id': item.id,
+                            'text': item.name
+                        });
+                    });
+                    return {
+                        results: myResults
+                    };
+                },
+                cache: true
+            },
+            minimumInputLength: 2
+        });
+
+    });
+</script>
+
+</body>
+</html>
